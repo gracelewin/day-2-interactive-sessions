@@ -9,3 +9,47 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Derivatives in R
+Derivative function: `D(expr, name)`
+```{r}
+
+#use expression function
+fx <- expression(x^2)
+
+df_dx <- D(expr = fx, name = 'x')
+
+df_dx
+
+#Evaluate the slope of f(x) at x = 831
+
+x <- 831
+eval(expr = df_dx)
+
+# If I want to evaluate the slope at a range of values...
+
+x <- seq(from = 20, to = 500, by = 5)
+
+eval(expr = df_dx)
+
+```
+```{r}
+gt <- expression(3 * t^2 - 4 * cos(t))
+
+dg_dt <- D(expr = gt, name = 't')
+```
+
+
+Try it!
+```{r}
+
+# use expression function
+hz <- expression(4*z^4-6*tan(z)-z^6)
+
+dh_dz <- D(expr = hz, name = 'z')
+
+dh_dz
+
+z <- 561
+eval(expr = dh_dz)
+```
+
